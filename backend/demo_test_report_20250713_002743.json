@@ -1,0 +1,125 @@
+{
+  "test_summary": {
+    "total_tests": 10,
+    "passed": 7,
+    "failed": 3,
+    "success_rate": 70.0
+  },
+  "test_results": [
+    {
+      "test_name": "JSON Handling",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:27:43.254966",
+      "details": {
+        "original": {
+          "test": "data",
+          "number": 42
+        },
+        "parsed": {
+          "test": "data",
+          "number": 42
+        }
+      }
+    },
+    {
+      "test_name": "DateTime Handling",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:27:43.254979",
+      "details": {
+        "current_time": "2025-07-13T00:27:43.254977"
+      }
+    },
+    {
+      "test_name": "File Operations",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:27:43.255460",
+      "details": {
+        "filename": "test_demo_output.json",
+        "data_written": {
+          "demo": "test",
+          "timestamp": "2025-07-13T00:27:43.254984"
+        },
+        "data_read": {
+          "demo": "test",
+          "timestamp": "2025-07-13T00:27:43.254984"
+        }
+      }
+    },
+    {
+      "test_name": "Mock API Call - /health",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:27:43.255488",
+      "details": {
+        "status_code": 200,
+        "response_data": {
+          "status": "healthy"
+        }
+      }
+    },
+    {
+      "test_name": "Mock API Call - /api/v1/auth/signup",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:27:43.255496",
+      "details": {
+        "status_code": 200,
+        "response_data": {
+          "user_id": "test_123"
+        }
+      }
+    },
+    {
+      "test_name": "Mock API Call - /api/v1/chat/send",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:27:43.255502",
+      "details": {
+        "status_code": 200,
+        "response_data": {
+          "message": "Hello!"
+        }
+      }
+    },
+    {
+      "test_name": "Mock API Call - /invalid",
+      "status": "FAIL",
+      "timestamp": "2025-07-13T00:27:43.255508",
+      "details": {
+        "status_code": 404,
+        "response_data": {
+          "error": "Not found"
+        }
+      }
+    },
+    {
+      "test_name": "User Data Validation 1",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:27:43.255519",
+      "details": {
+        "username_valid": true,
+        "email_valid": true,
+        "password_valid": true
+      }
+    },
+    {
+      "test_name": "User Data Validation 2",
+      "status": "FAIL",
+      "timestamp": "2025-07-13T00:27:43.255529",
+      "details": {
+        "username_valid": true,
+        "email_valid": false,
+        "password_valid": false
+      }
+    },
+    {
+      "test_name": "User Data Validation 3",
+      "status": "FAIL",
+      "timestamp": "2025-07-13T00:27:43.255535",
+      "details": {
+        "username_valid": false,
+        "email_valid": true,
+        "password_valid": true
+      }
+    }
+  ],
+  "timestamp": "2025-07-13T00:27:43.255552",
+  "test_type": "demo_infrastructure"
+}

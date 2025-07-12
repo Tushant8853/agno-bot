@@ -1,0 +1,341 @@
+{
+  "test_summary": {
+    "total_tests": 35,
+    "passed": 29,
+    "failed": 6,
+    "skipped": 0,
+    "success_rate": 82.86
+  },
+  "test_results": [
+    {
+      "test_name": "Root Endpoint",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:47.179803",
+      "details": {
+        "status_code": 200,
+        "response_keys": [
+          "message",
+          "version",
+          "description",
+          "docs",
+          "health"
+        ]
+      }
+    },
+    {
+      "test_name": "Health Check",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:47.180675",
+      "details": {
+        "status_code": 200,
+        "services": {
+          "memory": "initialized",
+          "gemini": "initialized",
+          "agno": "initialized",
+          "auth": "initialized"
+        }
+      }
+    },
+    {
+      "test_name": "User Registration - john_doe",
+      "status": "FAIL",
+      "timestamp": "2025-07-13T00:33:47.182243",
+      "details": {
+        "error": "User with this email or username already exists"
+      }
+    },
+    {
+      "test_name": "User Login - john_doe",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:47.405838",
+      "details": {
+        "user_id": "115ba1af-69b3-4d2d-9bfd-7e977d3d3b62",
+        "has_session_token": true
+      }
+    },
+    {
+      "test_name": "User Registration - jane_smith",
+      "status": "FAIL",
+      "timestamp": "2025-07-13T00:33:47.407346",
+      "details": {
+        "error": "User with this email or username already exists"
+      }
+    },
+    {
+      "test_name": "User Login - jane_smith",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:47.630483",
+      "details": {
+        "user_id": "7c6bea69-218d-4cb2-8d4e-5670fa09cc09",
+        "has_session_token": true
+      }
+    },
+    {
+      "test_name": "User Registration - alex_wong",
+      "status": "FAIL",
+      "timestamp": "2025-07-13T00:33:47.632068",
+      "details": {
+        "error": "User with this email or username already exists"
+      }
+    },
+    {
+      "test_name": "User Login - alex_wong",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:47.854651",
+      "details": {
+        "user_id": "45a4167e-54e3-4d13-a0d8-71ce06448bdf",
+        "has_session_token": true
+      }
+    },
+    {
+      "test_name": "Get User Profile - user_1",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:47.856096",
+      "details": {
+        "status_code": 200,
+        "user_id": "115ba1af-69b3-4d2d-9bfd-7e977d3d3b62"
+      }
+    },
+    {
+      "test_name": "Get User Sessions - user_1",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:47.857280",
+      "details": {
+        "status_code": 200,
+        "session_count": 2
+      }
+    },
+    {
+      "test_name": "Get User Profile - user_2",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:47.858161",
+      "details": {
+        "status_code": 200,
+        "user_id": "7c6bea69-218d-4cb2-8d4e-5670fa09cc09"
+      }
+    },
+    {
+      "test_name": "Get User Sessions - user_2",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:47.859396",
+      "details": {
+        "status_code": 200,
+        "session_count": 2
+      }
+    },
+    {
+      "test_name": "Get User Profile - user_3",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:47.860646",
+      "details": {
+        "status_code": 200,
+        "user_id": "45a4167e-54e3-4d13-a0d8-71ce06448bdf"
+      }
+    },
+    {
+      "test_name": "Get User Sessions - user_3",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:47.862061",
+      "details": {
+        "status_code": 200,
+        "session_count": 2
+      }
+    },
+    {
+      "test_name": "Send Chat Message 1",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:51.766929",
+      "details": {
+        "status_code": 200,
+        "message_length": 64,
+        "has_response": false
+      }
+    },
+    {
+      "test_name": "Send Chat Message 2",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:33:59.146667",
+      "details": {
+        "status_code": 200,
+        "message_length": 53,
+        "has_response": false
+      }
+    },
+    {
+      "test_name": "Send Chat Message 3",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:06.859390",
+      "details": {
+        "status_code": 200,
+        "message_length": 43,
+        "has_response": false
+      }
+    },
+    {
+      "test_name": "Send Chat Message 4",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:12.798606",
+      "details": {
+        "status_code": 200,
+        "message_length": 42,
+        "has_response": false
+      }
+    },
+    {
+      "test_name": "Send Chat Message 5",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:20.480877",
+      "details": {
+        "status_code": 200,
+        "message_length": 67,
+        "has_response": false
+      }
+    },
+    {
+      "test_name": "Get Memory Context",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.490270",
+      "details": {
+        "status_code": 200,
+        "facts_count": 0,
+        "relationships_count": 0
+      }
+    },
+    {
+      "test_name": "Memory Search - 'user preferences'",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.493680",
+      "details": {
+        "status_code": 200,
+        "results_count": 0,
+        "search_time_ms": 0.22
+      }
+    },
+    {
+      "test_name": "Memory Search - 'learning interests'",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.497182",
+      "details": {
+        "status_code": 200,
+        "results_count": 0,
+        "search_time_ms": 0.0
+      }
+    },
+    {
+      "test_name": "Memory Search - 'technical background'",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.499765",
+      "details": {
+        "status_code": 200,
+        "results_count": 0,
+        "search_time_ms": 0.0
+      }
+    },
+    {
+      "test_name": "Create Memory Relationship",
+      "status": "FAIL",
+      "timestamp": "2025-07-13T00:34:21.502202",
+      "details": {
+        "status_code": 500,
+        "relationship_id": null
+      }
+    },
+    {
+      "test_name": "Get Memory Facts",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.504040",
+      "details": {
+        "status_code": 200,
+        "facts_count": 0
+      }
+    },
+    {
+      "test_name": "Get Memory Relationships",
+      "status": "FAIL",
+      "timestamp": "2025-07-13T00:34:21.505717",
+      "details": {
+        "status_code": 500,
+        "relationships_count": 0
+      }
+    },
+    {
+      "test_name": "Get Memory Analytics",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.507302",
+      "details": {
+        "status_code": 200,
+        "total_facts": 0,
+        "total_relationships": 0
+      }
+    },
+    {
+      "test_name": "Get Memory Stats",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.509079",
+      "details": {
+        "status_code": 200,
+        "memory_usage_mb": 0.0
+      }
+    },
+    {
+      "test_name": "WebSocket Endpoint",
+      "status": "FAIL",
+      "timestamp": "2025-07-13T00:34:21.510562",
+      "details": {
+        "status_code": 404,
+        "note": "WebSocket requires special client testing"
+      }
+    },
+    {
+      "test_name": "Invalid Endpoint",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.511810",
+      "details": {
+        "status_code": 404
+      }
+    },
+    {
+      "test_name": "Invalid Authentication",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.513254",
+      "details": {
+        "status_code": 401
+      }
+    },
+    {
+      "test_name": "Invalid Login Data",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.514407",
+      "details": {
+        "status_code": 422
+      }
+    },
+    {
+      "test_name": "Logout - user_1",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.518326",
+      "details": {
+        "status_code": 200
+      }
+    },
+    {
+      "test_name": "Logout - user_2",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.520872",
+      "details": {
+        "status_code": 200
+      }
+    },
+    {
+      "test_name": "Logout - user_3",
+      "status": "PASS",
+      "timestamp": "2025-07-13T00:34:21.523326",
+      "details": {
+        "status_code": 200
+      }
+    }
+  ],
+  "timestamp": "2025-07-13T00:34:21.523360",
+  "api_version": "v1",
+  "base_url": "http://localhost:8000"
+}
