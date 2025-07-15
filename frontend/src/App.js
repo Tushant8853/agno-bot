@@ -21,7 +21,9 @@ function App() {
   const [websocket, setWebsocket] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
   const [systemStatus, setSystemStatus] = useState({});
+  const [showScrollButton, setShowScrollButton] = useState(false);
   const messagesEndRef = useRef(null);
+  const messagesContainerRef = useRef(null);
 
   const [auth, setAuth] = useState(() => {
     const token = localStorage.getItem('access_token');
@@ -29,13 +31,49 @@ function App() {
   });
 
   const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+      // Also scroll the container to ensure it's at the bottom
+      if (messagesContainerRef.current) {
+        messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+      }
+    }
   }, []);
 
-  // Remove auto-scroll for now to fix focus issue
-  // useEffect(() => {
-  //   scrollToBottom();
-  // }, [messages]);
+  const handleScroll = useCallback(() => {
+    if (messagesContainerRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = messagesContainerRef.current;
+      const isScrolledUp = scrollTop + clientHeight < scrollHeight - 100;
+      setShowScrollButton(isScrolledUp);
+    }
+  }, []);
+
+  // Auto-scroll to bottom when new messages are added
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, scrollToBottom]);
+
+  // Add scroll event listener to messages container
+  useEffect(() => {
+    const container = messagesContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScroll);
+      return () => container.removeEventListener('scroll', handleScroll);
+    }
+  }, [handleScroll]);
+
+  // Add keyboard shortcut for scrolling to bottom (Ctrl/Cmd + End)
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === 'End') {
+        event.preventDefault();
+        scrollToBottom();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [scrollToBottom]);
 
   // Handle message sending from ChatInput component
   const handleSendMessage = useCallback(async (messageText) => {
@@ -415,7 +453,7 @@ function App() {
           </div>
 
           <div className="main-chat">
-            <div className="messages-container">
+            <div className="messages-container" ref={messagesContainerRef}>
               {messages.map((message) => (
                 <div
                   key={message.id}
@@ -450,6 +488,16 @@ function App() {
 
               <div ref={messagesEndRef} />
             </div>
+
+            {showScrollButton && (
+              <button 
+                className="scroll-to-bottom-button"
+                onClick={scrollToBottom}
+                title="Scroll to bottom"
+              >
+                ↓
+              </button>
+            )}
 
                         <ChatInput onSendMessage={handleSendMessage} isLoading={isLoading} />
           </div>
